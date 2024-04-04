@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'country.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // const MyApp({super.key});
+
+  final List<String> countries = [
+    'Chile',
+    'Uruguay',
+    'EEUU',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -58,12 +66,26 @@ class MyApp extends StatelessWidget {
         //     ),
         //   ),
 
-        body: const Center(
-          child: Country(
-            newCountry: 'Argentina',
-          ),
-        ),
+        // body: const Center(
+        //   child: Country(
+        //     newCountry: 'Argentina',
+        //   ),
+        // ),
 
+        // body: const Column(
+        //   //mainAxisAlignment: MainAxisAlignment.start,
+        //   //crossAxisAlignment: CrossAxisAlignment.baseline,
+
+        //   children: <Country>[
+        //     Country(newCountry: 'Ecuador'),
+        //     Country(newCountry: 'Colombia'),
+        //     Country(newCountry: 'Brasil'),
+        //   ],
+        // ),
+
+        body: Column(
+          children: countries.map((item) => Country(newCountry: item)).toList(),
+        ),
         //),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -85,7 +107,8 @@ class MyApp extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            print('Presiono el botón');
+            countries.add('Rusia');
+            print('Cantidad: ${countries.length}');
           },
           //backgroundColor: Colors.blue,
           child: const Icon(
@@ -94,20 +117,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class Country extends StatelessWidget {
-  //String newCountry = 'Colombia';
-  final String newCountry;
-
-  const Country({super.key, required this.newCountry});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Text(newCountry),
     );
   }
 }
