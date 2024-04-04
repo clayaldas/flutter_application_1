@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'country.dart';
-import 'myapptwo.dart';
 
-void main() {
-  // runApp(const MyApp());
-  // runApp(MyApp());
-  runApp(const MyAppTwo());
+class MyAppTwo extends StatefulWidget {
+  const MyAppTwo({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _MyAppTwoState();
+  }
+
+  // @override
+  // State<StatefulWidget> createState() => _MyAppTwoState();
 }
 
-class MyApp extends StatelessWidget {
-  // const MyApp({super.key});
-
+class _MyAppTwoState extends State<MyAppTwo> {
   final List<String> countries = [
     'Chile',
     'Uruguay',
@@ -122,3 +125,17 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// class Test extends StatefulWidget {
+//   const Test({super.key});
+
+//   @override
+//   State<Test> createState() => _TestState();
+// }
+
+// class _TestState extends State<Test> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
